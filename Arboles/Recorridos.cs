@@ -178,15 +178,15 @@ namespace Menu_Arboles.Arboles
 
         public static NodoArbol CrearArbolPrueba_3()
         {
-            return new NodoArbol("F",
-                        new NodoArbol("B",
-                            new NodoArbol("A"),
-                            new NodoArbol("D",
-                                new NodoArbol("C"),
-                                new NodoArbol("E"))),
-                        new NodoArbol("G",
-                            der: new NodoArbol("I",
-                                izq: new NodoArbol("H"))));
+            return new NodoArbol('F',
+                        new NodoArbol('B',
+                            new NodoArbol('A'),
+                            new NodoArbol('D',
+                                new NodoArbol('C'),
+                                new NodoArbol('E'))),
+                        new NodoArbol('G',
+                            der: new NodoArbol('I',
+                                izq: new NodoArbol('H'))));
         }
 
         #endregion
