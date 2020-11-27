@@ -6,9 +6,9 @@ using System.Runtime.InteropServices;
 // conjunto de atributos. Cambie estos valores de atributo para modificar la información
 // asociada a un ensamblado.
 [assembly: AssemblyTitle("Menu_Arboles")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Programa que muestra la manipulacion de Arboles hecho por 192310436 192310252 192310177")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("ProgramMasters")]
 [assembly: AssemblyProduct("Menu_Arboles")]
 [assembly: AssemblyCopyright("Copyright ©  2020")]
 [assembly: AssemblyTrademark("")]
