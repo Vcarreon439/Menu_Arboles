@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Menu_Arboles.Arboles
 {
@@ -11,8 +7,6 @@ namespace Menu_Arboles.Arboles
         static private Type Aux = null;
 
         #region DetectaTipo
-        
-        
         static public Type DetectaTipo(NodoArbol nodo)
         {
 
@@ -46,28 +40,27 @@ namespace Menu_Arboles.Arboles
 
             return Aux;
         }
-        
-
         #endregion
 
         #region Metodos_Buscar
-
         /// <summary>
         /// Sirve para buscar un elemento dentro de un "arbol" (Metodo Recursivo)
         /// </summary>
         /// <param name="Arbol">Nodo a evaluar</param>
         /// <param name="valor">Valor a buscar</param>
         /// <returns>El valor, con sus propiedades {Izq Der}</returns>
-        private static NodoArbol Buscar(NodoArbol Arbol, Object valor)
+        public static NodoArbol Buscar(NodoArbol Arbol, int valor)
         {
             //En caso de ser nulo
-            if (Arbol == null) return Arbol;
+            if (Arbol == null) { return Arbol; }
             //En caso de ser el valor buscado
-            if (valor == Arbol.Valor) return Arbol;
-            //En caso de ser diferente al valor buscado (Resursividad)
-            if (valor != Arbol.Valor) return Buscar(Arbol.Izq, valor);
+            if (valor == Convert.ToInt32(Arbol.Valor)) { return Arbol; }
+                
+            
+            NodoArbol encontrado = Buscar(Arbol.Izq, valor);
+            if (encontrado != null)
+                return encontrado;
 
-            //Recursividad
             return Buscar(Arbol.Der, valor);
         }
 
@@ -77,12 +70,12 @@ namespace Menu_Arboles.Arboles
         /// <param name="Arbol"></param>
         /// <param name="valor"></param>
         /// <returns>Boolena para comprobación interna</returns>
-        public static bool Resultado_Buscar(NodoArbol Arbol, Object valor)
+        public static bool Resultado_Buscar(NodoArbol Arbol, int valor)
         {
             if (Recorridos.Buscar(Arbol, valor) == null)
-                return false;
+            { return false; }
             else
-                return true;
+            { return true; }
         }
 
         #endregion

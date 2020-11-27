@@ -2,17 +2,16 @@
 using Menu_Arboles.Lista_Enlazada;
 using Menu_Arboles.Menús;
 using Menu_Arboles.Arboles;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Menu_Arboles
 {
     class Program
     {
+        //Lista en la cual se iran almacenando los arboles
         static Lista_Enlazad Lista = new Lista_Enlazad();
+        //variable de control para la repeticion del menu & programa
         static bool rep = true;
+        //contador para arboles de prueba
         static int cont = 0;
 
         static void Main(string[] args)
@@ -60,10 +59,11 @@ namespace Menu_Arboles
                             break;
                     }
                 }
-                catch (Exception)
+                catch (System.FormatException)
                 {
-                    throw;
+                    Console.WriteLine("Ingrese un valor numerico");
                 }
+
             } while (rep);
         }
     }

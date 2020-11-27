@@ -8,6 +8,7 @@ namespace Menu_Arboles.Arboles
 {
     class ABB
     {
+        //Variable de apoyo
         private static NodoArbol temp;
 
         //Raiz del arbol
@@ -64,6 +65,7 @@ namespace Menu_Arboles.Arboles
             //En caso de ser menor al nodo
             if (Convert.ToInt32(dato) <= Convert.ToInt32(pNodo.Valor))
                 pNodo.Izq = Insertar(dato, pNodo.Izq);
+
             //En caso de ser mayor al nodo
             if (Convert.ToInt32(dato) > Convert.ToInt32(pNodo.Valor))
                 pNodo.Der = Insertar(dato, pNodo.Der);

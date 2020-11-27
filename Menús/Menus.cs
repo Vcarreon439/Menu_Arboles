@@ -7,12 +7,22 @@ namespace Menu_Arboles.Menús
 {
     class Menus
     {
+        //variable para repeticion del ciclo
         static private bool rep = false;
+        //variable para la opcion del menu
         static private int opcion = 0;
 
+
+        /// <summary>
+        /// Menu Principal del programa
+        /// </summary>
+        /// <param name="lista">Lista que contendra los arboles</param>
+        /// <returns></returns>
         public static int MenuPricipal(ref Lista_Enlazad lista)
         {
+            //variable para repeticion del ciclo
             bool rep = false;
+            //variable para la opcion del menu
             int opc = 0;
 
             do
@@ -44,6 +54,11 @@ namespace Menu_Arboles.Menús
             return opc;
         }
 
+        /// <summary>
+        /// Menu para crear arboles
+        /// </summary>
+        /// <param name="lista">Lista que contendra los arboles</param>
+        /// <returns></returns>
         static public bool MenuCrear(ref Lista_Enlazad lista)
         {
             bool rep = false;
@@ -109,7 +124,11 @@ namespace Menu_Arboles.Menús
             return true;
         }
 
-
+        /// <summary>
+        /// Menu para arboles que no contienen datos enteros
+        /// </summary>
+        /// <param name="node">Arbol el cual se va manipular</param>
+        /// <param name="nombre">nombre del arbol para mostrar al usuario</param>
         static public void MenuMostrar_C1(NodoArbol node, string nombre) 
         {
             bool rep = false;
@@ -177,6 +196,11 @@ namespace Menu_Arboles.Menús
             
         }
 
+        /// <summary>
+        /// Menu en caso de todos los datos del arbol sean enteros
+        /// </summary>
+        /// <param name="node">Arbol el cual se va manipular</param>
+        /// <param name="nombre">nombre del arbol para mostrar al usuario</param>
         static public void MenuMostrar_C2(ref NodoArbol node, string nombre)
         {
             bool rep = false;
@@ -200,6 +224,7 @@ namespace Menu_Arboles.Menús
                     switch (int.Parse(Console.ReadLine()))
                     {
                         case 1:
+                            Console.Clear();
                             ABB.Transversa(node);
                             System.Threading.Thread.Sleep(2000);
                             rep = true;
@@ -207,38 +232,63 @@ namespace Menu_Arboles.Menús
 
                         case 2:
                             var valor = MenuInsercionInt();
-                            ABB.Insertar(valor, node);
+                            node = ABB.Insertar(valor, node);
                             rep = true;
                             break;
 
                         case 3:
+                            Console.WriteLine("Que valor desea eliminar?");
                             ABB.BorrarNodo(int.Parse(Console.ReadLine()),node);
                             rep = true;
                             break;
 
                         case 4:
+                            Console.Clear();
 
-                            if (Recorridos.Resultado_Buscar(node, int.Parse(Console.ReadLine())))
-                                Console.WriteLine("El elemento si existe");
+                            Console.Write("Valor a buscar: \t");
+                            int valor2 = int.Parse(Console.ReadLine());
+                            
+                            if (Recorridos.Resultado_Buscar(node, valor2))
+                            {
+                                NodoArbol nodoBuscado = Recorridos.Buscar(node, valor2);
+                                string mensaje = $"El elemento {nodoBuscado.Valor} si existe; ";
+                                
+                                if (nodoBuscado.Izq!=null)
+                                    mensaje += $"su hijo izquierdo es {nodoBuscado.Izq.Valor}";
+                                else
+                                    mensaje += "su hijo izquierdo es null";
+
+                                if (nodoBuscado.Der!=null)
+                                    mensaje += $", su hijo derecho es {nodoBuscado.Der.Valor}";
+                                else
+                                    mensaje += $", su hijo derecho es null";
+
+                                Console.WriteLine(mensaje);
+                            }
                             else
-                                Console.WriteLine("El elemento no existe");
+                            { Console.WriteLine("El elemento no existe"); }
 
+                            Console.ReadKey();
+                            
                             rep = true;
                             break;
 
 
                         case 5:
                             Recorridos.PreOrden(node);
+                            System.Threading.Thread.Sleep(2000);
                             rep = true;
                             break;
 
                         case 6:
                             Recorridos.InOrden(node);
+                            System.Threading.Thread.Sleep(2000);
                             rep = true;
                             break;
 
                         case 7:
                             Recorridos.PostOrden(node);
+                            System.Threading.Thread.Sleep(2000);
                             rep = true;
                             break;
 
@@ -268,8 +318,13 @@ namespace Menu_Arboles.Menús
             
         }
 
-
+        //Variable de control para la definicion de tipo de arbol
         static private Type tipo = null;
+
+        /// <summary>
+        /// Menu mostrado despues de mostrar los arboles almacenados.
+        /// </summary>
+        /// <param name="Lista">Lista en la cual se almacenan los arboles</param>
         static public void MenuMostrar(Lista_Enlazad Lista) 
         {
             Console.Clear();
@@ -303,6 +358,10 @@ namespace Menu_Arboles.Menús
             }
         }
 
+        /// <summary>
+        /// Menu para insertar
+        /// </summary>
+        /// <returns>Devuelve el valor que vas a insertar</returns>
         public static Object MenuInsercionInt()
         {
             Object valor = null;
