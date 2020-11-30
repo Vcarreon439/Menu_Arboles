@@ -195,7 +195,7 @@ namespace Menu_Arboles.Arboles
         /// <param name="dato"></param>
         /// <param name="nodo"></param>
         /// <returns></returns>
-        static private NodoArbol BuscarPadre(int dato, NodoArbol nodo)
+        static public NodoArbol BuscarPadre(int dato, NodoArbol nodo)
         {
             NodoArbol aux = null;
 

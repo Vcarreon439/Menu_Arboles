@@ -37,7 +37,8 @@ namespace Menu_Arboles.Menús
                     Console.WriteLine("\t3.-Crear Nodo Prueba_1 Int32");
                     Console.WriteLine("\t4.-Crear Nodo Prueba_2 String");
                     Console.WriteLine("\t5.-Crear Nodo Prueba_3 Char");
-                    Console.WriteLine("\t6.-Salir del Programa");
+                    Console.WriteLine("\t6.-Información del Programa");
+                    Console.WriteLine("\t7.-Salir del Programa");
                     opc = int.Parse(Console.ReadLine());
                     rep = false;
                 }
@@ -213,11 +214,12 @@ namespace Menu_Arboles.Menús
                 Console.WriteLine("2.- Insertar nodo");
                 Console.WriteLine("3.- Eliminar nodo");
                 Console.WriteLine("4.- Buscar nodo en el arbol");
-                Console.WriteLine("5.- Recorrido PreOrden");
-                Console.WriteLine("6.- Recorrido InOrden");
-                Console.WriteLine("7.- Recorrido PostOrden");
-                Console.WriteLine("8.- Salir del Menu Actual");
-                Console.WriteLine("9.- Salir del Programa");
+                Console.WriteLine("5.- Buscar padre");
+                Console.WriteLine("6.- Recorrido PreOrden");
+                Console.WriteLine("7.- Recorrido InOrden");
+                Console.WriteLine("8.- Recorrido PostOrden");
+                Console.WriteLine("9.- Salir del Menu Actual");
+                Console.WriteLine("10.- Salir del Programa");
 
                 try
                 {
@@ -273,30 +275,51 @@ namespace Menu_Arboles.Menús
                             rep = true;
                             break;
 
-
                         case 5:
+                            Console.Clear();
+                            Console.Write("Valor a evaluar: \t");
+                            int valor3 = int.Parse(Console.ReadLine());
+
+                            if (Recorridos.Resultado_Buscar(node, valor3))
+                            {
+                                NodoArbol result = ABB.BuscarPadre(valor3, node);
+
+                                if (result==null)
+                                    Console.WriteLine($"El valor {valor3} es la raiz");
+                                else
+                                    Console.WriteLine($"El padre de {valor3} es {result.Valor}");
+                            }
+                            else
+                            { Console.WriteLine("El elemento no existe"); }
+
+                            Console.ReadKey();
+                            rep = true;
+                            break;
+
+
+                        case 6:
                             Recorridos.PreOrden(node);
                             System.Threading.Thread.Sleep(2000);
                             rep = true;
                             break;
 
-                        case 6:
+                        case 7:
                             Recorridos.InOrden(node);
                             System.Threading.Thread.Sleep(2000);
                             rep = true;
                             break;
 
-                        case 7:
+                        case 8:
                             Recorridos.PostOrden(node);
                             System.Threading.Thread.Sleep(2000);
                             rep = true;
                             break;
 
-                        case 8:
+                        case 9:
                             rep = false;
                             break;
 
-                        case 9:
+                        case 10:
                             Environment.Exit(0);
                             break;
 

@@ -55,6 +55,20 @@ namespace Menu_Arboles
                             break;
 
                         case 6:
+                            Console.Clear();
+                            Console.Title = "Información del Programa";
+                            Console.WriteLine("Materia: Estructura de Datos");
+                            Console.WriteLine("Docente: ING. NANCY GABRIELA MARÍN CASTAÑEDA");
+                            Console.WriteLine("Tercer Semestre | Grupo A | Agosto - Diciembre");
+                            Console.WriteLine("Programa hecho por:");
+                            Console.WriteLine("\t Victor Hugo Carreon Pulido - 192310436");
+                            Console.WriteLine("\t Andrea Evelyn Mejia Rubio - 192310177");
+                            Console.WriteLine("\t Edgar Eduardo Arguijo Vazquez - 192310252");
+                            Console.ReadKey();
+                            rep = true;
+                            break;
+
+                        case 7:
                             Environment.Exit(0);
                             break;
                     }
